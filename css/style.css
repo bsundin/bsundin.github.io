@@ -25,3 +25,29 @@ header {
 .titletext {
     color: white;
 }
+
+main {
+    height: 90%;
+}
+
+.maincontainer {
+    height: 100%;
+    background-color: green;
+}
+
+.leftcontainer {
+    display: block;
+    height: 100%;
+    width: 50%;
+    background-color: red;
+}
+
+.rightcontainer {
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    height: 90%;
+    width: 50%;
+    background-color: blue;
+}
