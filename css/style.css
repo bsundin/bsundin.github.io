@@ -11,7 +11,9 @@ body, html {
 }
 
 header {
-    height: 10%;
+    height: 15%;
+    font-size: xx-large;
+    padding-top: 20px;
 }
 
 .titleheader {
@@ -27,7 +29,7 @@ header {
 }
 
 main {
-    height: 90%;
+    height: 85%;
 }
 
 .maincontainer {
@@ -45,9 +47,18 @@ main {
 .rightcontainer {
     display: block;
     position: absolute;
-    top: 10%;
+    top: 15%;
     left: 50%;
-    height: 90%;
+    height: 85%;
     width: 50%;
     background-color: blue;
+}
+
+.sectionheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    color: white;
+    font-size: 300%;
 }
