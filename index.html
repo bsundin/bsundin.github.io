@@ -19,9 +19,19 @@
         <div class="maincontainer">
             <div class="leftcontainer">
                 <h1 class="sectionheader">Input</h1>
+                <script src="./js/formSubmit.js"></script>
+                <form id="translationform">
+                    <select name="from" id="from">
+                        <option value="en">English</option>
+                        <option value="id">Indonesia</option>
+                    </select>
+                    <textarea name="input" id="input"></textarea>
+                    <button type="button" id="translate" onclick="submitTranslation()">Translate</button>
+                </form>
             </div>
             <div class="rightcontainer">
                 <h1 class="sectionheader">Output</h1>
+                <textarea class="output" id="output" readonly></textarea>
             </div>
         </div>
     </main>
