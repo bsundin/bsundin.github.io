@@ -78,6 +78,11 @@ textarea {
     cursor: auto;
     padding-left: 2.5%;
     padding-top: 2%;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 .selectwrapper {

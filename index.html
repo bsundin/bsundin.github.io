@@ -22,7 +22,8 @@
                 <script src="./js/formSubmit.js"></script>
                 <div class="selectwrapper">
                     <label for="from">Translate from:</label>
-                    <select name="from" id="from">
+                    <select name="from" id="from" onchange="selectFromLanguage()">
+                        <option value="auto">Auto</option>
                         <option value="en">English</option>
                         <option value="id">Indonesia</option>
                     </select>
@@ -34,7 +35,7 @@
                 <h1 class="sectionheader">Output</h1>
                 <div class="selectwrapper">
                     <label for="to">Translate to:</label>
-                    <select name="to" id="to">
+                    <select name="to" id="to" onchange="selectToLanguage()">
                         <option value="en">English</option>
                         <option value="id">Indonesia</option>
                     </select>
