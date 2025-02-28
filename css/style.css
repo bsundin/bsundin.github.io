@@ -63,3 +63,23 @@ main {
     font-size: 300%;
     padding-top: 2%;
 }
+
+textarea {
+    width: 90%;
+    height: 75%;
+    background-color: #1a1b4f;
+    margin: auto;
+    display: block;
+    color: white;
+    font-size: 150%;
+    border: 2px solid white;
+    border-radius: 4vh;
+    resize: none;
+    cursor: auto;
+}
+
+.selectwrapper {
+    color: white;
+    width: fit-content;
+    margin: auto;
+}
