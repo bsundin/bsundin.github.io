@@ -76,6 +76,8 @@ textarea {
     border-radius: 4vh;
     resize: none;
     cursor: auto;
+    padding-left: 2.5%;
+    padding-top: 2%;
 }
 
 .selectwrapper {
