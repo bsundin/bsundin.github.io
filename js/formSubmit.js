@@ -1,5 +1,6 @@
 var fromLang = "auto";
 var toLang = "en";
+const langCodeArray = ["sq", "ar", "az", "eu", "bn", "bg", "ca", "zt", "zh", "cs", "da", "nl", "en", "eo", "et", "fi", "fr", "gl", "de"];
 
 function submitTranslation() {
     console.log("test");
