@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Self Hosted Translate</title>
 </head>
-<body>
+<body onload="loadDropdowns();">
     <header>
         <div class="titleheader">
             <h1 class="titletext">Self Hosted Translate</h1>
@@ -24,8 +24,6 @@
                     <label for="from">Translate from:</label>
                     <select name="from" id="from" onchange="selectFromLanguage()">
                         <option value="auto">Auto</option>
-                        <option value="en">English</option>
-                        <option value="id">Indonesia</option>
                     </select>
                 </div>
                 <textarea name="input" id="input"></textarea>
@@ -35,10 +33,7 @@
                 <h1 class="sectionheader">Output</h1>
                 <div class="selectwrapper">
                     <label for="to">Translate to:</label>
-                    <select name="to" id="to" onchange="selectToLanguage()">
-                        <option value="en">English</option>
-                        <option value="id">Indonesia</option>
-                    </select>
+                    <select name="to" id="to" onchange="selectToLanguage()"></select>
                 </div>
                 <textarea class="output" id="output" readonly></textarea>
             </div>

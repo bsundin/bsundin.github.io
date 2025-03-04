@@ -87,6 +87,17 @@ textarea {
 
 .selectwrapper {
     color: white;
-    width: fit-content;
+    width: fit-content
     margin: auto;
+}
+
+select {
+    background: none;
+    color: white;
+    font-family: 'Vactory Sans Regular', sans-serif;
+    border: 1px white solid;
+    border-radius: 4vh;
+    padding: .5%;
+    font-size: 101%;
+    cursor: pointer;
 }
