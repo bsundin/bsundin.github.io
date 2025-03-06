@@ -20,21 +20,23 @@
             <div class="leftcontainer">
                 <h1 class="sectionheader">Input</h1>
                 <script src="./js/formSubmit.js"></script>
-                <div class="selectwrapper">
+                <span class="selectwrapper">
                     <label for="from">Translate from:</label>
                     <select name="from" id="from" onchange="selectFromLanguage()">
                         <option value="auto">Auto</option>
                     </select>
-                </div>
-                <textarea name="input" id="input"></textarea>
+                    <span class="helper-element" id="fromhelper" aria-hidden="true"></span>
+                </span>
+                <textarea name="input" id="input" oninput="submitTranslation()"></textarea>
                 <button type="button" id="translate" onclick="submitTranslation()">Translate</button>
             </div>
             <div class="rightcontainer">
                 <h1 class="sectionheader">Output</h1>
-                <div class="selectwrapper">
+                <span class="selectwrapper">
                     <label for="to">Translate to:</label>
                     <select name="to" id="to" onchange="selectToLanguage()"></select>
-                </div>
+                    <span class="helper-element" id="tohelper" aria-hidden="true"></span>
+                </span>
                 <textarea class="output" id="output" readonly></textarea>
             </div>
         </div>

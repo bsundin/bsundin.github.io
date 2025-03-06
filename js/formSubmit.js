@@ -17,6 +17,12 @@ function loadDropdowns() {
         to.add(toOption);
     }
     console.log("dropdowns loaded");
+    if (localStorage.getItem("fromLang") != null) {
+        from.value = localStorage.getItem("fromLang");
+    }
+    if (localStorage.getItem("toLang") != null) {
+        to.value = localStorage.getItem("toLang");
+    }
 }
 
 function submitTranslation() {
@@ -26,16 +32,44 @@ function submitTranslation() {
     output.innerHTML = input;
     console.log(input);
 }
-// function selectFromLanguage() {
-//     console.log("from changed");
-//     var from = document.getElementById("from");
-//     var to = document.getElementById("to");
-//     if (from.value != "auto") {
-//         to.add(fromLang);
-//         to.remove(from.id);
-//     }
-// }
+function selectFromLanguage() {
+    console.log("from changed");
+    const from = document.getElementById("from");
+    localStorage.setItem("fromLang", from.value);
+    const helperElement = document.getElementById("fromhelper");
 
-// function selectToLanguage() {
-//     console.log("to changed");
-// }
+    from.addEventListener("change", initResize);
+
+    function initResize(event) {
+        helperElement.innerHTML = event.target.querySelector(
+            "option:checked"
+        ).innerText;
+        resize(helperElement.offsetWidth);
+    }
+
+    function resize(width) {
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-from-size", `${width}px`);
+    }
+}
+
+function selectToLanguage() {
+    console.log("to changed");
+    const to = document.getElementById("to");
+    localStorage.setItem("toLang", to.value);
+    const helperElement = document.getElementById("tohelper");
+
+    to.addEventListener("change", initResize);
+
+    function initResize(event) {
+        helperElement.innerHTML = event.target.querySelector(
+            "option:checked"
+        ).innerText;
+        resize(helperElement.offsetWidth);
+    }
+
+    function resize(width) {
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-to-size", `${width}px`);
+    }
+}

@@ -1,3 +1,11 @@
+:root {
+    --dynamic-from-size: 20px;
+    --dynamic-to-size: 20px;
+    --arrow-size: 20px;
+    --select-from-size: calc(var(--dynamic-from-size) + var(--arrow-size));
+    --select-to-size: calc(var(--dynamic-to-size) + var(--arrow-size));
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -87,17 +95,53 @@ textarea {
 
 .selectwrapper {
     color: white;
-    width: fit-content;
+    width: max-content;
+    white-space: nowrap;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: block;
     margin: auto;
 }
 
 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #1a1b4f;
     background: none;
+    border: none;
     color: white;
     font-family: 'Vactory Sans Regular', sans-serif;
-    border: 1px white solid;
-    border-radius: 4vh;
     padding: .5%;
     font-size: 101%;
+    scrollbar-color: white #1a1b4f;
     cursor: pointer;
+}
+
+#from {
+    width: var(--select-from-size);
+}
+
+#to {
+    width: var(--select-to-size);
+}
+
+select option {
+    background-color: #1a1b4f;
+    color: white;
+    font-family: 'Vactory Sans Regular', sans-serif;
+    border-radius: 4vh;
+    padding: .5%;
+    cursor: pointer;
+    scrollbar-color: white #1a1b4f;
+}
+
+#translate {
+    display: none;
+}
+
+.helper-element {
+    position: absolute;
+    top: 0;
+    left: -9999px;
 }
