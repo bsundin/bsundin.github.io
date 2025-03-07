@@ -23,6 +23,16 @@ function loadDropdowns() {
     if (localStorage.getItem("toLang") != null) {
         to.value = localStorage.getItem("toLang");
     }
+    if (localStorage.getItem("fromWidth") != null) {
+        const root = document.documentElement;
+        const width = localStorage.getItem("fromWidth");
+        root.style.setProperty("--dynamic-from-size", `${width}px`);
+    }
+    if (localStorage.getItem("toWidth") != null) {
+        const root = document.documentElement;
+        const width = localStorage.getItem("toWidth");
+        root.style.setProperty("--dynamic-to-size", `${width}px`);
+    }
 }
 
 function submitTranslation() {
@@ -36,20 +46,26 @@ function selectFromLanguage() {
     console.log("from changed");
     const from = document.getElementById("from");
     localStorage.setItem("fromLang", from.value);
+    console.log("fromLang set to " + from.value);
     const helperElement = document.getElementById("fromhelper");
 
     from.addEventListener("change", initResize);
 
     function initResize(event) {
+        console.log("initResize");
         helperElement.innerHTML = event.target.querySelector(
             "option:checked"
         ).innerText;
+        console.log(helperElement.innerHTML);
+        localStorage.setItem("fromWidth", helperElement.offsetWidth);
         resize(helperElement.offsetWidth);
     }
 
     function resize(width) {
+        console.log("resize run");
         const root = document.documentElement;
         root.style.setProperty("--dynamic-from-size", `${width}px`);
+        console.log("width set to " + width);
     }
 }
 
@@ -65,6 +81,7 @@ function selectToLanguage() {
         helperElement.innerHTML = event.target.querySelector(
             "option:checked"
         ).innerText;
+        localStorage.setItem("toWidth", helperElement.offsetWidth);
         resize(helperElement.offsetWidth);
     }
 
