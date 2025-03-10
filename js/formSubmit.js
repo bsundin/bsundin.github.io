@@ -51,11 +51,11 @@ function loadDropdowns() {
     }
 
     function initToResize(event) {
-        fromHelperElement.innerHTML = event.target.querySelector(
+        toHelperElement.innerHTML = event.target.querySelector(
             "option:checked"
         ).innerText;
-        localStorage.setItem("toWidth", fromHelperElement.offsetWidth);
-        toResize(fromHelperElement.offsetWidth);
+        localStorage.setItem("toWidth", toHelperElement.offsetWidth);
+        toResize(toHelperElement.offsetWidth);
     }
 
     function fromResize(width) {
@@ -68,6 +68,12 @@ function loadDropdowns() {
     function toResize(width) {
         const root = document.documentElement;
         root.style.setProperty("--dynamic-to-size", `${width}px`);
+    }
+
+    if (from.value == "auto") {
+        document.getElementById("switchLanguages").style.display = 'none';
+    } else {
+        document.getElementById("switchLanguages").style.display = 'block';
     }
 
 }
@@ -84,6 +90,11 @@ function selectFromLanguage() {
     console.log("from changed");
     const from = document.getElementById("from");
     localStorage.setItem("fromLang", from.value);
+    if (from.value == "auto") {
+        document.getElementById("switchLanguages").style.display = 'none';
+    } else {
+        document.getElementById("switchLanguages").style.display = 'block';
+    }
 }
 
 function selectToLanguage() {
@@ -95,9 +106,45 @@ function selectToLanguage() {
 function switchLanguages() {
     var from = document.getElementById("from");
     var to = document.getElementById("to");
+
+    const fromHelperElement = document.getElementById("fromhelper");
+    const toHelperElement = document.getElementById("tohelper");
+
+    function initFromResize() {
+        console.log("initResize");
+        fromHelperElement.innerHTML = from.querySelector(
+            "option:checked"
+        ).innerText;
+        console.log(fromHelperElement.innerHTML);
+        localStorage.setItem("fromWidth", fromHelperElement.offsetWidth);
+        fromResize(fromHelperElement.offsetWidth);
+    }
+
+    function initToResize() {
+        toHelperElement.innerHTML = to.querySelector(
+            "option:checked"
+        ).innerText;
+        localStorage.setItem("toWidth", toHelperElement.offsetWidth);
+        toResize(toHelperElement.offsetWidth);
+    }
+
+    function fromResize(width) {
+        console.log("resize run");
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-from-size", `${width}px`);
+        console.log("width set to " + width);
+    }
+
+    function toResize(width) {
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-to-size", `${width}px`);
+    }
+
     var temp = from.value;
     from.value = to.value;
     to.value = temp;
     selectFromLanguage();
     selectToLanguage();
+    initFromResize();
+    initToResize();
 }
