@@ -33,6 +33,43 @@ function loadDropdowns() {
         const width = localStorage.getItem("toWidth");
         root.style.setProperty("--dynamic-to-size", `${width}px`);
     }
+
+    const fromHelperElement = document.getElementById("fromhelper");
+    const toHelperElement = document.getElementById("tohelper");
+
+    document.getElementById("from").addEventListener("change", initFromResize);
+    document.getElementById("to").addEventListener("change", initToResize);
+
+    function initFromResize(event) {
+        console.log("initResize");
+        fromHelperElement.innerHTML = event.target.querySelector(
+            "option:checked"
+        ).innerText;
+        console.log(fromHelperElement.innerHTML);
+        localStorage.setItem("fromWidth", fromHelperElement.offsetWidth);
+        fromResize(fromHelperElement.offsetWidth);
+    }
+
+    function initToResize(event) {
+        fromHelperElement.innerHTML = event.target.querySelector(
+            "option:checked"
+        ).innerText;
+        localStorage.setItem("toWidth", fromHelperElement.offsetWidth);
+        toResize(fromHelperElement.offsetWidth);
+    }
+
+    function fromResize(width) {
+        console.log("resize run");
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-from-size", `${width}px`);
+        console.log("width set to " + width);
+    }
+
+    function toResize(width) {
+        const root = document.documentElement;
+        root.style.setProperty("--dynamic-to-size", `${width}px`);
+    }
+
 }
 
 function submitTranslation() {
@@ -42,51 +79,25 @@ function submitTranslation() {
     output.innerHTML = input;
     console.log(input);
 }
+
 function selectFromLanguage() {
     console.log("from changed");
     const from = document.getElementById("from");
     localStorage.setItem("fromLang", from.value);
-    console.log("fromLang set to " + from.value);
-    const helperElement = document.getElementById("fromhelper");
-
-    from.addEventListener("change", initResize);
-
-    function initResize(event) {
-        console.log("initResize");
-        helperElement.innerHTML = event.target.querySelector(
-            "option:checked"
-        ).innerText;
-        console.log(helperElement.innerHTML);
-        localStorage.setItem("fromWidth", helperElement.offsetWidth);
-        resize(helperElement.offsetWidth);
-    }
-
-    function resize(width) {
-        console.log("resize run");
-        const root = document.documentElement;
-        root.style.setProperty("--dynamic-from-size", `${width}px`);
-        console.log("width set to " + width);
-    }
 }
 
 function selectToLanguage() {
     console.log("to changed");
     const to = document.getElementById("to");
     localStorage.setItem("toLang", to.value);
-    const helperElement = document.getElementById("tohelper");
+}
 
-    to.addEventListener("change", initResize);
-
-    function initResize(event) {
-        helperElement.innerHTML = event.target.querySelector(
-            "option:checked"
-        ).innerText;
-        localStorage.setItem("toWidth", helperElement.offsetWidth);
-        resize(helperElement.offsetWidth);
-    }
-
-    function resize(width) {
-        const root = document.documentElement;
-        root.style.setProperty("--dynamic-to-size", `${width}px`);
-    }
+function switchLanguages() {
+    var from = document.getElementById("from");
+    var to = document.getElementById("to");
+    var temp = from.value;
+    from.value = to.value;
+    to.value = temp;
+    selectFromLanguage();
+    selectToLanguage();
 }

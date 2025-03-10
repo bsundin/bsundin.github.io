@@ -113,9 +113,14 @@ select {
     color: white;
     font-family: 'Vactory Sans Regular', sans-serif;
     padding: .5%;
-    font-size: 101%;
+    font-size: 102%;
     scrollbar-color: white #1a1b4f;
     cursor: pointer;
+    text-decoration: underline;
+}
+
+select:focus {
+    outline: none;
 }
 
 #from {
@@ -144,4 +149,19 @@ select option {
     position: absolute;
     top: 0;
     left: -9999px;
+}
+
+.switchLanguages {
+    display: block;
+    width: 40px;
+    position: absolute;
+    top: 23%;
+    left: calc(50% - 19.4px);
+}
+
+.switchIcon {
+    cursor: pointer;
+    background-color: #1a1b4f;
+    border: 1px solid white;
+    border-radius: 50%;
 }
