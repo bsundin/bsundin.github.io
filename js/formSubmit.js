@@ -6,6 +6,9 @@ const langNameArray = ["Albanian", "Arabic", "Azerbaijani", "Basque", "Bengali",
 function loadDropdowns() {
     var from = document.getElementById("from");
     var to = document.getElementById("to");
+    const fromHelperElement = document.getElementById("fromhelper");
+    const toHelperElement = document.getElementById("tohelper");
+
     for (var i = 0; i < langCodeArray.length; i++) {
         var fromOption = document.createElement("option");
         fromOption.value = langCodeArray[i];
@@ -27,15 +30,16 @@ function loadDropdowns() {
         const root = document.documentElement;
         const width = localStorage.getItem("fromWidth");
         root.style.setProperty("--dynamic-from-size", `${width}px`);
+    } else {
+        initFromResize();
     }
     if (localStorage.getItem("toWidth") != null) {
         const root = document.documentElement;
         const width = localStorage.getItem("toWidth");
         root.style.setProperty("--dynamic-to-size", `${width}px`);
+    } else {
+        initToResize();
     }
-
-    const fromHelperElement = document.getElementById("fromhelper");
-    const toHelperElement = document.getElementById("tohelper");
 
     document.getElementById("from").addEventListener("change", initFromResize);
     document.getElementById("to").addEventListener("change", initToResize);
@@ -52,6 +56,24 @@ function loadDropdowns() {
 
     function initToResize(event) {
         toHelperElement.innerHTML = event.target.querySelector(
+            "option:checked"
+        ).innerText;
+        localStorage.setItem("toWidth", toHelperElement.offsetWidth);
+        toResize(toHelperElement.offsetWidth);
+    }
+
+    function initFromResize() {
+        console.log("initResize");
+        fromHelperElement.innerHTML = from.querySelector(
+            "option:checked"
+        ).innerText;
+        console.log(fromHelperElement.innerHTML);
+        localStorage.setItem("fromWidth", fromHelperElement.offsetWidth);
+        fromResize(fromHelperElement.offsetWidth);
+    }
+
+    function initToResize() {
+        toHelperElement.innerHTML = to.querySelector(
             "option:checked"
         ).innerText;
         localStorage.setItem("toWidth", toHelperElement.offsetWidth);

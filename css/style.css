@@ -154,14 +154,22 @@ select option {
 .switchLanguages {
     display: block;
     width: 40px;
+    height: 40px;
     position: absolute;
     top: 23%;
     left: calc(50% - 19.4px);
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #1a1b4f;
 }
 
 .switchIcon {
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     background-color: #1a1b4f;
-    border: 1px solid white;
+    z-index: -1;
+    margin-top: 4px;
+    margin-left: 4px;
     border-radius: 50%;
 }
