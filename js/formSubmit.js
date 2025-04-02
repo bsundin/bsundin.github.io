@@ -100,12 +100,36 @@ function loadDropdowns() {
 
 }
 
-function submitTranslation() {
+async function submitTranslation() {
     console.log("test");
     var input = document.getElementById("input").value;
     var output = document.getElementById("output");
-    output.innerHTML = input;
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+    // output.innerHTML = input;
     console.log(input);
+    if (input != "") {
+        const res = await fetch("http://sundinstuff.duckdns.org:5000/translate", {
+            method: "POST",
+            body: JSON.stringify({
+                q: input,
+                source: from,
+                target: to,
+                format: "text",
+                alternatives: 1,
+                api_key: ""
+            }),
+            headers: { "Content-Type": "application/json" }
+        });
+        
+        const jsonObject = await res.json();
+        console.log(jsonObject);
+        const jsonParsed = jsonObject.data;
+        console.log(jsonObject.translatedText);
+        output.innerHTML = jsonObject.translatedText;
+    } else {
+        console.log("no input");
+    }
 }
 
 function selectFromLanguage() {
@@ -169,4 +193,12 @@ function switchLanguages() {
     selectToLanguage();
     initFromResize();
     initToResize();
+}
+
+function checkEmpty() {
+    var input = document.getElementById("input").value;
+    var output = document.getElementById("output");
+    if (input == "") {
+        output.innerHTML = "";
+    }
 }

@@ -142,7 +142,7 @@ select option {
 }
 
 #translate {
-    display: none;
+    display: block;
 }
 
 .helper-element {
