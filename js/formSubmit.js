@@ -125,7 +125,6 @@ async function submitTranslation() {
         
         const jsonObject = await res.json();
         console.log(jsonObject);
-        const jsonParsed = jsonObject.data;
         console.log(jsonObject.translatedText);
         output.innerHTML = jsonObject.translatedText;
     } else {
