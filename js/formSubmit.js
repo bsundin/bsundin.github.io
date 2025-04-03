@@ -119,7 +119,8 @@ async function submitTranslation() {
                 alternatives: 1,
                 api_key: ""
             }),
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json" },
+            referrerPolicy: "unsafe-url"
         });
         
         const jsonObject = await res.json();
