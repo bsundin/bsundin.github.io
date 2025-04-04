@@ -116,7 +116,7 @@ async function submitTranslation() {
                 source: from,
                 target: to,
                 format: "text",
-                alternatives: 1,
+                alternatives: 0,
                 api_key: ""
             }),
             headers: { "Content-Type": "application/json" }

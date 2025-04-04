@@ -28,7 +28,6 @@
                     <span class="helper-element" id="fromhelper" aria-hidden="true"></span>
                 </span>
                 <textarea name="input" id="input" oninput="checkEmpty()"></textarea>
-                <button type="button" id="translate" onclick="submitTranslation()">Translate</button>
             </div>
             <div class="rightcontainer">
                 <h1 class="sectionheader">Output</h1>
@@ -41,6 +40,9 @@
             </div>
             <div class="switchLanguages" id="switchLanguages" onclick="switchLanguages()">
                 <img src="./assets/img/swap.svg" alt="Switch languages" class="switchIcon">
+            </div>
+            <div class="submitBtn" id="submitBtn" onclick="submitTranslation()">
+                <button type="button" id="translate" onclick="submitTranslation()">Translate</button>
             </div>
         </div>
     </main>

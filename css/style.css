@@ -173,3 +173,28 @@ select option {
     margin-left: 4px;
     border-radius: 50%;
 }
+
+.submitBtn {
+    display: block;
+    min-width: fit-content;
+    width: 12%;
+    height: fit-content;
+    position: absolute;
+    left: calc(50% - 6%);
+    bottom: 1%;
+    background-color: #1a1b4f;
+    color: white;
+    font-size: 150%;
+    border: 2px solid white;
+    border-radius: 4vh;
+    cursor: pointer;
+    padding: 4px;
+}
+
+#translate {
+    background: none;
+    border: none;
+    color: white;
+    margin: auto;
+    cursor: pointer;
+}
