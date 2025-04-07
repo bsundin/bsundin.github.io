@@ -19,7 +19,6 @@ function loadDropdowns() {
         toOption.text = langNameArray[i];
         to.add(toOption);
     }
-    console.log("dropdowns loaded");
     if (localStorage.getItem("fromLang") != null) {
         from.value = localStorage.getItem("fromLang");
     }
