@@ -109,7 +109,7 @@ async function submitTranslation() {
     // output.innerHTML = input;
     console.log(input);
     if (input != "") {
-        const res = await fetch("http://sundinstuff.duckdns.org:5000/translate", {
+        const res = await fetch("https://translateapi.thesundinfamily.xyz/translate", {
             method: "POST",
             body: JSON.stringify({
                 q: input,
