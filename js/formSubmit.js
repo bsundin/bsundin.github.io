@@ -108,6 +108,8 @@ async function submitTranslation() {
     // output.innerHTML = input;
     console.log(input);
     if (input != "") {
+        document.getElementById("lds-ellipsis").style.display = 'block';
+        output.innerHTML = "Translating...";
         const res = await fetch("https://translateapi.thesundinfamily.xyz/translate", {
             method: "POST",
             body: JSON.stringify({
@@ -125,6 +127,7 @@ async function submitTranslation() {
         console.log(jsonObject);
         console.log(jsonObject.translatedText);
         output.innerHTML = jsonObject.translatedText;
+        document.getElementById("lds-ellipsis").style.display = 'none';
     } else {
         console.log("no input");
     }
