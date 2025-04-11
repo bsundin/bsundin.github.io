@@ -28,7 +28,9 @@
                     </select>
                     <span class="helper-element" id="fromhelper" aria-hidden="true"></span>
                 </span>
-                <textarea name="input" id="input" oninput="checkEmpty()" maxlength="500"></textarea>
+                <div class="textareacont">
+                    <textarea name="input" id="input" oninput="checkEmpty()" maxlength="500"></textarea>
+                </div>
             </div>
             <div class="rightcontainer">
                 <h1 class="sectionheader">Output</h1>
@@ -37,8 +39,10 @@
                     <select name="to" id="to" onchange="selectToLanguage()"></select>
                     <span class="helper-element" id="tohelper" aria-hidden="true"></span>
                 </span>
-                <textarea class="output" id="output" readonly></textarea>
-                <div class="lds-ellipsis" id="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                <div class="textareacont">
+                    <textarea class="output" id="output" readonly></textarea>
+                    <div class="lds-ellipsis" id="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
             </div>
             <div class="switchLanguages" id="switchLanguages" onclick="switchLanguages()">
                 <img src="./assets/img/swap.svg" alt="Switch languages" class="switchIcon">
