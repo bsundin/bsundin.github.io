@@ -203,3 +203,9 @@ function checkEmpty() {
         output.innerHTML = "";
     }
 }
+
+function clearInput() {
+    var input = document.getElementById("input");
+    input.value = "";
+    checkEmpty();
+}

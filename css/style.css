@@ -86,6 +86,8 @@ textarea {
     cursor: auto;
     padding-left: 2.5%;
     padding-top: 2%;
+    padding-right: 7%;
+    padding-bottom: 2%;
     overflow: auto;
     outline: none;
     -webkit-box-shadow: none;
@@ -205,4 +207,21 @@ select option {
     margin: auto;
     display: block;
     position: relative !important;
+}
+
+.clearbtn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #1a1b4f;
+    color: white;
+    font-size: 150%;
+    border: 1px solid white;
+    border-radius: 3vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
