@@ -196,12 +196,14 @@ function switchLanguages() {
     initToResize();
 }
 
-function checkEmpty() {
+function updateCount() {
     var input = document.getElementById("input").value;
     var output = document.getElementById("output");
     if (input == "") {
         output.innerHTML = "";
     }
+    var inputCount = document.getElementById("charactercount");
+    inputCount.innerHTML = input.length + " / 500";
 }
 
 function clearInput() {

@@ -225,3 +225,11 @@ select option {
     justify-content: center;
     align-items: center;
 }
+
+.charactercount {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    color: #a6a6a6;
+    font-size: 80%;
+}
