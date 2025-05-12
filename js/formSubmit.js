@@ -208,6 +208,7 @@ function updateCount() {
 
 function clearInput() {
     var input = document.getElementById("input");
+    var output = document.getElementById("output");
     input.value = "";
-    checkEmpty();
+    output.innerHTML = "";
 }
